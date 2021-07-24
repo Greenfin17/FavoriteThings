@@ -1,0 +1,221 @@
+﻿using FavoriteThings.MyStuff;
+using System;
+
+namespace FavoriteThings
+{
+    class Program
+    {
+        static void UseCars()
+        {
+            Car BMW = new Car("1987", "BMW", "E30", false, 232000, 22.3);
+            Car FocusElectric = new Car("2013", "Ford", "Focus Electric", true, 42000);
+            ConsoleKeyInfo inputKey = new ConsoleKeyInfo();
+            bool exit = false;
+            while (!exit)
+            {
+                Console.WriteLine("Select Car");
+                Console.WriteLine("  1) BMW");
+                Console.WriteLine("  2) Ford Focus Electric");
+                Console.WriteLine("Enter 'x' to exit");
+                inputKey = Console.ReadKey(true);
+                Console.Write('\n');
+                switch (inputKey.KeyChar)
+                {
+                    case ('1'):
+                        Console.WriteLine("You selected the BMW");
+                        BMW.Status();
+                        BMW.Drive(200, 3.51);
+                        BMW.Status();
+                        BMW.Repair(250);
+                        BMW.Status();
+                        break;
+                    case ('2'):
+                        Console.WriteLine("You selected the Ford");
+                        FocusElectric.SetElectricCost(.31, .10);
+                        FocusElectric.Status();
+                        FocusElectric.Drive(200);
+                        FocusElectric.Status();
+                        break;
+                    case ('x'):
+                    case ('X'):
+                        exit = true;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+        }
+        static void UseTools()
+        {
+            Tool SocketSet = new Tool("Socket Set", "Metric");
+            Tool LaserMeasure = new Tool("Laser Measure", "Electronic");
+            ConsoleKeyInfo inputKey = new ConsoleKeyInfo();
+            bool exit = false;
+            while (!exit)
+            {
+                Console.WriteLine("Select Tool");
+                Console.WriteLine("  1) Socket Set");
+                Console.WriteLine("  2) Laser Measure");
+                Console.WriteLine("Enter 'x' to exit");
+                inputKey = Console.ReadKey(true);
+                Console.Write('\n');
+                switch (inputKey.KeyChar)
+                {
+                    case ('1'):
+                        Console.WriteLine("You selected the socket set");
+                        SocketSet.Use();
+                        SocketSet.Retrieve();
+                        SocketSet.Use();
+                        SocketSet.Clean();
+                        SocketSet.Return();
+                        SocketSet.Status();
+                        break;
+                    case ('2'):
+                        Console.WriteLine("You selected the laser measure");
+                        LaserMeasure.Use();
+                        LaserMeasure.Retrieve();
+                        LaserMeasure.Use();
+                        LaserMeasure.Return();
+                        LaserMeasure.Clean();
+                        LaserMeasure.Return();
+                        LaserMeasure.Status();
+                        break;
+                    case ('x'):
+                    case ('X'):
+                        exit = true;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        }
+        static void UseComputers()
+        {
+            Computer Bach = new Computer("DIY", "Mid-Tower", "Ryzen 7", "16GB", "2TB");
+            Computer Saturn = new Computer("HP", "Laptop", "Intel i5", "16GB", "1TB");
+            ConsoleKeyInfo inputKey = new ConsoleKeyInfo();
+            bool exit = false;
+            while (!exit)
+            {
+                Console.WriteLine("Select Tool");
+                Console.WriteLine("  1) Mid-Tower");
+                Console.WriteLine("  2) Laptop");
+                Console.WriteLine("Enter 'x' to exit");
+                inputKey = Console.ReadKey(true);
+                Console.Write('\n');
+                switch (inputKey.KeyChar)
+                {
+                    case ('1'):
+                        Console.WriteLine("You selected the mid-tower");
+                        Bach.Info();
+                        Bach.Update();
+                        Bach.Virus();
+                        break;
+                    case ('2'):
+                        Console.WriteLine("You selected the laptop");
+                        Saturn.Info();
+                        Saturn.Update();
+                        Saturn.Info();
+                        break;
+                    case ('x'):
+                    case ('X'):
+                        exit = true;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+        }
+
+        static void PlayViolins()
+        {
+            Violin Calace = new Violin("Calace", "Last 19th Century","Dark", "Dark and resonant");
+            Violin Janzen = new Violin("Hermann Janzen", "2012","Light Tan with a hint of red", "Bright and brilliant");
+            ConsoleKeyInfo inputKey = new ConsoleKeyInfo();
+            bool exit = false;
+            while (!exit)
+            {
+                Console.WriteLine("Select Tool");
+                Console.WriteLine("  1) Calace");
+                Console.WriteLine("  2) Janzenn");
+                Console.WriteLine("Enter 'x' to exit");
+                inputKey = Console.ReadKey(true);
+                Console.Write('\n');
+                switch (inputKey.KeyChar)
+                {
+                    case ('1'):
+                        Console.WriteLine($"You selected the {Calace.Maker}");
+                        Calace.Retrieve();
+                        Calace.Play();
+                        Calace.Return();
+                        Calace.Clean();
+                        break;
+                    case ('2'):
+                        Console.WriteLine($"You selected the {Janzen.Maker}");
+                        Janzen.Retrieve();
+                        Janzen.Play();
+                        Janzen.Return();
+                        Janzen.Clean();
+                        break;
+                    case ('x'):
+                    case ('X'):
+                        exit = true;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+        }
+        static void Main(string[] args)
+        {
+            ConsoleKeyInfo inputKey = new ConsoleKeyInfo();
+            bool exit = false;
+            while(!exit)
+            {
+                Console.WriteLine("               My Favorite Things\n");
+                Console.WriteLine("Select favorite things");
+                Console.WriteLine("  1) Cars");
+                Console.WriteLine("  2) Computers");
+                Console.WriteLine("  3) Tools");
+                Console.WriteLine("  4) Violins");
+                Console.WriteLine("Enter 'x' to exit");
+
+                inputKey = Console.ReadKey(true);
+                Console.Write('\n');
+
+                switch (inputKey.KeyChar)
+                {
+                    case ('1'):
+                        UseCars();
+                        break;
+                    case ('2'):
+                        UseComputers();
+                        break;
+                    case ('3'):
+                        UseTools();
+                        break;
+                    case ('4'):
+                        PlayViolins();
+                        break;
+                    case ('x'):
+                    case ('X'):
+                        exit = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
+
+        }
+    }
+}
