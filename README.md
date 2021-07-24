@@ -1,2 +1,2 @@
 # FavoriteThings
-Conslole app for object class exercise.
+C# Console app for object class exercise.
