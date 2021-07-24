@@ -31,21 +31,26 @@ namespace FavoriteThings.MyStuff
 
         public void Play()
         {
+
+            Console.WriteLine("               Trying to play the violin.");
             if(_violinInCase)
             {
-                Console.WriteLine("You must take the violin out of the case to play it.");
+                Console.WriteLine("               You must take the violin out of the case to play it.");
             }
             else if (_inTune)
             {
-                Console.WriteLine("Fa la la la la");
+                Console.WriteLine("               Playing the violin");
+                Console.WriteLine("               Fa la la la la");
+                _stringsHaveRosin = true;
             } else
             {
-                Console.WriteLine("You need to tune the violin");
+                Console.WriteLine("               You need to tune the violin before playing it.");
             }
         }
 
         public void Retrieve()
         {
+            Console.WriteLine("               Retrieving violin from case");
             _inTune = false;
             _stringsHaveRosin = false;
             _violinInCase = false;
@@ -53,12 +58,14 @@ namespace FavoriteThings.MyStuff
 
         public void Return()
         {
-            if(_stringsHaveRosin)
+            Console.WriteLine("               Trying to return the violin to it's case.");
+            if (_stringsHaveRosin)
             {
-                Console.WriteLine("You must clean the rosin off of the strings before returning the violin to the case");
+                Console.WriteLine("               You must clean the rosin off of the strings before returning the violin to the case.");
             }
             else
             {
+                Console.WriteLine("               The violin is now in it's case.");
                 _violinInCase = true;
             }
 
@@ -67,13 +74,20 @@ namespace FavoriteThings.MyStuff
         public void Tune()
         {
             _inTune = true;
-            Console.WriteLine("The violin is now in tune");
+            Console.WriteLine("               Tuning the violin.");
+            Console.WriteLine("               The violin is now in tune");
         }
 
         public void Clean()
         {
             _stringsHaveRosin = false;
-            Console.WriteLine("Thanks, the violin strings are now clean.");
+            Console.WriteLine("               Cleaning the violin.");
+            Console.WriteLine("               Thanks, the violin strings are now clean.");
+        }
+
+        public void Status()
+        {
+            Console.WriteLine($"               {Maker}, {Year}, Finish: {Color}, Tone: {Tone}");
         }
     }
 }

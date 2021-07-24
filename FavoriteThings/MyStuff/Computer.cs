@@ -16,6 +16,7 @@ namespace FavoriteThings.MyStuff
         public string DiskSpace { get; set; }
 
         DateTime _lastUpdate;
+        DateTime _lastBackup;
 
         public Computer(string brand, string type, string processor, string memory, string diskSpace)
         {
@@ -25,6 +26,7 @@ namespace FavoriteThings.MyStuff
             Memory = memory;
             DiskSpace = diskSpace;
             _lastUpdate = DateTime.Now;
+            _lastBackup= DateTime.Now;
         }
 
         public void Info()
@@ -36,10 +38,13 @@ namespace FavoriteThings.MyStuff
             Console.WriteLine($"               Memory: {Memory}");
             Console.WriteLine($"               Disk Space: {DiskSpace}");
             Console.WriteLine($"               Last Update: {_lastUpdate}");
+            Console.WriteLine($"               Last Backup: {_lastBackup}\n");
         }
 
         public void Update()
         {
+            Console.WriteLine($"               Updating the {Type}");
+            Console.WriteLine($"               The last Update was: {_lastUpdate}\n");
             _lastUpdate = DateTime.Now;
         }
 
@@ -55,6 +60,13 @@ namespace FavoriteThings.MyStuff
 ");
             Console.Write(message);
             Console.Write('\n');
+        }
+        public void Backup()
+        {
+
+            Console.WriteLine($"               Backing up the {Type}");
+            Console.WriteLine($"               The last backup was: {_lastBackup}\n");
+            _lastBackup= DateTime.Now;
         }
     }
 }

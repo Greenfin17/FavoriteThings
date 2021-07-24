@@ -35,6 +35,8 @@ namespace FavoriteThings
                         FocusElectric.Status();
                         FocusElectric.Drive(200);
                         FocusElectric.Status();
+                        FocusElectric.Repair(250);
+                        FocusElectric.Status();
                         break;
                     case ('x'):
                     case ('X'):
@@ -68,6 +70,7 @@ namespace FavoriteThings
                         SocketSet.Use();
                         SocketSet.Retrieve();
                         SocketSet.Use();
+                        SocketSet.Return();
                         SocketSet.Clean();
                         SocketSet.Return();
                         SocketSet.Status();
@@ -100,7 +103,7 @@ namespace FavoriteThings
             bool exit = false;
             while (!exit)
             {
-                Console.WriteLine("Select Tool");
+                Console.WriteLine("Select Computer");
                 Console.WriteLine("  1) Mid-Tower");
                 Console.WriteLine("  2) Laptop");
                 Console.WriteLine("Enter 'x' to exit");
@@ -109,16 +112,18 @@ namespace FavoriteThings
                 switch (inputKey.KeyChar)
                 {
                     case ('1'):
-                        Console.WriteLine("You selected the mid-tower");
+                        Console.WriteLine("               You selected the mid-tower");
                         Bach.Info();
                         Bach.Update();
+                        Bach.Backup();
                         Bach.Virus();
                         break;
                     case ('2'):
-                        Console.WriteLine("You selected the laptop");
+                        Console.WriteLine("               You selected the laptop");
                         Saturn.Info();
                         Saturn.Update();
-                        Saturn.Info();
+                        Saturn.Backup();
+                        Saturn.Virus();
                         break;
                     case ('x'):
                     case ('X'):
@@ -134,13 +139,13 @@ namespace FavoriteThings
 
         static void PlayViolins()
         {
-            Violin Calace = new Violin("Calace", "Last 19th Century","Dark", "Dark and resonant");
+            Violin Calace = new Violin("Calace", "Late 19th Century","Dark", "Dark and resonant");
             Violin Janzen = new Violin("Hermann Janzen", "2012","Light Tan with a hint of red", "Bright and brilliant");
             ConsoleKeyInfo inputKey = new ConsoleKeyInfo();
             bool exit = false;
             while (!exit)
             {
-                Console.WriteLine("Select Tool");
+                Console.WriteLine("Select Violin");
                 Console.WriteLine("  1) Calace");
                 Console.WriteLine("  2) Janzenn");
                 Console.WriteLine("Enter 'x' to exit");
@@ -149,18 +154,26 @@ namespace FavoriteThings
                 switch (inputKey.KeyChar)
                 {
                     case ('1'):
-                        Console.WriteLine($"You selected the {Calace.Maker}");
+                        Console.WriteLine($"               You selected the {Calace.Maker}");
+                        Calace.Status();
                         Calace.Retrieve();
+                        Calace.Play();
+                        Calace.Tune();
                         Calace.Play();
                         Calace.Return();
                         Calace.Clean();
+                        Calace.Return();
                         break;
                     case ('2'):
-                        Console.WriteLine($"You selected the {Janzen.Maker}");
+                        Console.WriteLine($"               You selected the {Janzen.Maker}");
+                        Janzen.Status();
                         Janzen.Retrieve();
+                        Janzen.Play();
+                        Janzen.Tune();
                         Janzen.Play();
                         Janzen.Return();
                         Janzen.Clean();
+                        Calace.Return();
                         break;
                     case ('x'):
                     case ('X'):

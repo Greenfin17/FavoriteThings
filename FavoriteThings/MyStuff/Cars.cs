@@ -76,6 +76,8 @@ namespace FavoriteThings.MyStuff
 
         public void SetElectricCost(double kwhMile, double costKwh)
         {
+            Console.WriteLine($"               The {Make} uses {kwhMile} killowatts / mile");
+            Console.WriteLine($"               The cost per mile is ${costKwh * kwhMile}.");
             _kwhMile = kwhMile;
             _costKWH = costKwh;
         }
@@ -84,7 +86,7 @@ namespace FavoriteThings.MyStuff
         {
             string output = $"               {Year } {Make} {Model}\n" +
                             $"               Mileage: {Mileage}\n" +
-                            $"               Total Operating Cost: {_operationCost,7:F2}\n";
+                            $"               Total Operating Cost: ${_operationCost,0:F2}\n";
 
             Console.WriteLine(output);
         }
