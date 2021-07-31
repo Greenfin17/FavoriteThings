@@ -1,5 +1,6 @@
 ﻿using FavoriteThings.MyStuff;
 using System;
+using System.Collections.Generic;
 
 namespace FavoriteThings
 {
@@ -9,34 +10,37 @@ namespace FavoriteThings
         {
             Car BMW = new Car("1987", "BMW", "E30", false, 232000, 22.3);
             Car FocusElectric = new Car("2013", "Ford", "Focus Electric", true, 42000);
+            List<Car> carList = new List<Car>();
+            carList.Add(BMW);
+            carList.Add(FocusElectric);
             ConsoleKeyInfo inputKey = new ConsoleKeyInfo();
             bool exit = false;
             while (!exit)
             {
                 Console.WriteLine("Select Car");
-                Console.WriteLine("  1) BMW");
-                Console.WriteLine("  2) Ford Focus Electric");
+                Console.WriteLine($"  1) {carList[0].Year} {carList[0].Make}");
+                Console.WriteLine($"  2) {carList[1].Year} {carList[1].Make}");
                 Console.WriteLine("Enter 'x' to exit");
                 inputKey = Console.ReadKey(true);
                 Console.Write('\n');
                 switch (inputKey.KeyChar)
                 {
                     case ('1'):
-                        Console.WriteLine("You selected the BMW");
-                        BMW.Status();
-                        BMW.Drive(200, 3.51);
-                        BMW.Status();
-                        BMW.Repair(250);
+                        Console.WriteLine($"You selected the {carList[0].Make}");
+                        carList[0].Status();
+                        carList[0].Drive(200, 3.51);
+                        carList[0].Status();
+                        carList[0].Repair(250);
                         BMW.Status();
                         break;
                     case ('2'):
-                        Console.WriteLine("You selected the Ford");
-                        FocusElectric.SetElectricCost(.31, .10);
-                        FocusElectric.Status();
-                        FocusElectric.Drive(200);
-                        FocusElectric.Status();
-                        FocusElectric.Repair(250);
-                        FocusElectric.Status();
+                        Console.WriteLine($"You selected the {carList[1].Make}");
+                        carList[1].SetElectricCost(.31, .10);
+                        carList[1].Status();
+                        carList[1].Drive(200);
+                        carList[1].Status();
+                        carList[1].Repair(250);
+                        carList[1].Status();
                         break;
                     case ('x'):
                     case ('X'):
@@ -53,6 +57,7 @@ namespace FavoriteThings
         {
             Tool SocketSet = new Tool("Socket Set", "Metric");
             Tool LaserMeasure = new Tool("Laser Measure", "Electronic");
+
             ConsoleKeyInfo inputKey = new ConsoleKeyInfo();
             bool exit = false;
             while (!exit)
